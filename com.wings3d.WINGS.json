@@ -17,7 +17,7 @@
 
     "cleanup": ["/lib/erlang", "/bin/ct_run", "/bin/*er", "/bin/epmd",
 		"/bin/*erl*", "/bin/rebar3", "escript",	"/bin/wx*",
-		"/inlude"],
+		"/include"],
 
     "modules": [
 	"shared-modules/glu/glu-9.0.0.json",
@@ -29,8 +29,8 @@
             "sources": [
                 {
                     "type": "archive",
-		    "url": "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.1/wxWidgets-3.1.1.tar.bz2",
-		    "sha1": "f999c3cf1887c0a60e519214c14b15cb9bb5ea6e"
+		    "url": "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.tar.bz2",
+		    "sha1": "29cbbba946d2a7b4d28ca1db12315810cc8de74d"
                 }
             ]
         },
@@ -55,8 +55,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://erlang.org/download/otp_src_21.1.tar.gz",
-		    "md5": "482f91cf34c2ffb1dff6e716a15afefa"
+                    "url": "http://erlang.org/download/otp_src_21.2.tar.gz",
+		    "md5": "8a797dfe4cfb1bbf1b007f01b2f5a1ad"
                 }
             ]
         },
@@ -107,11 +107,12 @@
 	    },
             "build-commands": [
 		"make unix",
-		"./wings-2.2.1-linux.bzip2.run",
+		"./wings-*-linux.bzip2.run",
 		"install -d /app/share/applications /app/share/appdata",
 		"sed -i 's/^Exec=.*/Exec=flatpak run com.wings3d.WINGS/' /app/lib/wings-*/wings.desktop",
 		"install /app/lib/wings-*/wings.desktop /app/share/applications/com.wings3d.WINGS.desktop",
 		"install /app/lib/wings-*/wings.appdata.xml /app/share/appdata/com.wings3d.WINGS.appdata.xml",
+		"install -D /app/lib/wings-*/lib/wings*/ebin/wings_icon_379x379.png /app/share/icons/hicolor/48x48/apps/wings.png",
 		"install -D /app/lib/wings-*/lib/wings*/ebin/wings_icon_379x379.png /app/share/icons/hicolor/379x379/apps/wings.png",
 		"install /app/lib/wings-*/wings /app/bin"
             ],
@@ -119,8 +120,7 @@
                 {
                     "type": "git",
 		    "url": "https://github.com/dgud/wings.git",
-		    "tag": "v2.2.1",
-		    "commit": "e9d5cfaa509ce033b21c35ff154b01ced13740ed"
+		    "tag": "v2.2.2.1",
                 }
             ]
         }
