@@ -29,8 +29,9 @@
             "sources": [
                 {
                     "type": "archive",
-		    "url": "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.2/wxWidgets-3.1.2.tar.bz2",
-		    "sha1": "29cbbba946d2a7b4d28ca1db12315810cc8de74d"
+		    "url": "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.1/wxWidgets-3.1.1.tar.bz2",
+		    "sha1": "f999c3cf1887c0a60e519214c14b15cb9bb5ea6e"
+
                 }
             ]
         },
@@ -109,18 +110,19 @@
 		"make unix",
 		"./wings-*-linux.bzip2.run",
 		"install -d /app/share/applications /app/share/appdata",
-		"sed -i 's/^Exec=.*/Exec=flatpak run com.wings3d.WINGS/' /app/lib/wings-*/wings.desktop",
+		"sed -i 's/^Exec=.*/Exec=wings %f/' /app/lib/wings-*/wings.desktop",
 		"install /app/lib/wings-*/wings.desktop /app/share/applications/com.wings3d.WINGS.desktop",
 		"install /app/lib/wings-*/wings.appdata.xml /app/share/appdata/com.wings3d.WINGS.appdata.xml",
-		"install -D /app/lib/wings-*/lib/wings*/ebin/wings_icon_379x379.png /app/share/icons/hicolor/48x48/apps/wings.png",
-		"install -D /app/lib/wings-*/lib/wings*/ebin/wings_icon_379x379.png /app/share/icons/hicolor/379x379/apps/wings.png",
+		"install -D /app/lib/wings-*/lib/wings*/ebin/wings_icon_48x48.png /app/share/icons/hicolor/48x48/apps/wings.png",
+		"install -D /app/lib/wings-*/lib/wings*/ebin/wings_icon_256x256.png /app/share/icons/hicolor/256x256/apps/wings.png",
 		"install /app/lib/wings-*/wings /app/bin"
             ],
             "sources": [
                 {
-                    "type": "git",
+		    "type": "git",
 		    "url": "https://github.com/dgud/wings.git",
 		    "tag": "v2.2.2.1",
+		    "commit": "c7986c002f9060c326a74b9f08aa5fdf1bc8153c"
                 }
             ]
         }
